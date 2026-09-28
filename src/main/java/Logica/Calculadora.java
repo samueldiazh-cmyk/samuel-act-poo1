@@ -75,6 +75,10 @@ public class Calculadora {
     public boolean superaNotaLimite(double notaLimite) {
         return calcularDefinitiva() > notaLimite;
     }
+    public String obtenerDatos() {
+        return "Codigo: " + id + " | Nombre: " + nombre
+                + " | Definitiva: " + String.format("%.2f", calcularDefinitiva());
+    }
 
     
 
