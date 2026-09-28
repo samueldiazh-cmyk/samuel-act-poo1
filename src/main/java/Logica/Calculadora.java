@@ -72,6 +72,11 @@ public class Calculadora {
         return definitiva;
     
     }
+    public boolean superaNotaLimite(double notaLimite) {
+        return calcularDefinitiva() > notaLimite;
+    }
+
     
 
 }
+
