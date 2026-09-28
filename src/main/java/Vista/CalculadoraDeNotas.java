@@ -62,5 +62,13 @@ public class CalculadoraDeNotas {
         }
         JOptionPane.showMessageDialog(null, incremento);
     }
+    public static double leerNota(String mensaje, double min, double max) {
+        double nota = Double.parseDouble(JOptionPane.showInputDialog(mensaje));
+        while (nota < min || nota > max) {
+            nota = Double.parseDouble(JOptionPane.showInputDialog(
+                    "Valor fuera de rango (" + min + " - " + max + ")\n" + mensaje));
+        }
+        return nota;
+    }
 
 }
