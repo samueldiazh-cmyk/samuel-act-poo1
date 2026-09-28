@@ -79,7 +79,14 @@ public class Calculadora {
         return "Codigo: " + id + " | Nombre: " + nombre
                 + " | Definitiva: " + String.format("%.2f", calcularDefinitiva());
     }
-
+public void incrementarNotaDesarrollo(double cifra) {
+        if (notaDesarrollo + cifra > 5.0) {
+            notaDesarrollo = 5.0;
+        } else {
+            notaDesarrollo = notaDesarrollo + cifra;
+        }
+        calcularDefinitiva();
+    }
     
 
 }
