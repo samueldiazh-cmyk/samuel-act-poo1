@@ -32,5 +32,35 @@ public class CalculadoraDeNotas {
             estudiantes[i] = new Calculadora(id, nombre, notad, notam);
         }
 
-    
+    for (int i = 0; i < n; i++) {
+            estudiantes[i].calcularDefinitiva();
+            estudiantes[i].mostrarNota();
+        }
+
+        
+        double notaLimite = leerNota("Digite la nota limite (entre 0.0 y 4.9)", 0.0, 4.9);
+        String reporte = "Estudiantes con definitiva superior a " + notaLimite + ":\n";
+        boolean hayEstudiantes = false;
+        for (int i = 0; i < n; i++) {
+            if (estudiantes[i].superaNotaLimite(notaLimite)) {
+                reporte += estudiantes[i].obtenerDatos() + "\n";
+                hayEstudiantes = true;
+            }
+        }
+        if (!hayEstudiantes) {
+            reporte += "Ningun estudiante supera la nota limite.";
+        }
+        JOptionPane.showMessageDialog(null, reporte);
+
+        
+        double cifra = leerNota("Digite la cifra a incrementar (entre 0.0 y 0.5)", 0.0, 0.5);
+        String incremento = "Notas de desarrollo despues del incremento:\n";
+        for (int i = 0; i < n; i++) {
+            estudiantes[i].incrementarNotaDesarrollo(cifra);
+            incremento += estudiantes[i].getNombre() + ": "
+                    + String.format("%.2f", estudiantes[i].getNotaDesarrollo()) + "\n";
+        }
+        JOptionPane.showMessageDialog(null, incremento);
+    }
+
 }
